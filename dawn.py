@@ -48,7 +48,7 @@ class TSVLogger():
         self.log = ['epoch\thours\ttop1Accuracy']
     def append(self, output):
         epoch, hours, acc = output['epoch'], output['total time']/3600, output['test acc']*100
-        self.log.append(f"{epoch}\t{hours:.8f}\t{acc:.2f}")
+        #self.log.append(f'{epoch}\t{hours:.8f}\t{acc:.2f}')
     def __str__(self):
         return '\n'.join(self.log)
    
