@@ -60,7 +60,7 @@ def main():
 
     epochs = 24
     lr_schedule = PiecewiseLinear([0, 5, epochs], [0, 0.4, 0])
-    batch_size = 512
+    batch_size = 4096
     train_transforms = [Crop(32, 32), FlipLR(), Cutout(8, 8)]
 
     model = Network(union(net(), losses))
