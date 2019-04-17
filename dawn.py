@@ -63,9 +63,7 @@ def main():
     batch_size = 512
     train_transforms = [Crop(32, 32), FlipLR(), Cutout(8, 8)]
 
-    model = Network(union(net(), losses))
-    model = nn.DataParallel(model)
-    model.to(device).half()
+    model = Network(union(net(), losses)).cuda().half()
     
     print('Warming up cudnn on random inputs')
     for size in [batch_size, len(dataset['test']['labels']) % batch_size]:
